@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import Navbar from "../components/Navbar";
 import ThemeToggle from "../components/ThemeToggle";
 import gsap from "gsap";
+import Button from "../components/Button";
 
 const Hero = () => {
   const introRef = useRef<HTMLDivElement>(null);
@@ -58,6 +59,10 @@ const Hero = () => {
             You can use this website to check if a domain is available or not.
           </p>
         </div>
+      </div>
+
+      <div className="flex items-center justify-center">
+        <Button />
       </div>
     </div>
   );
