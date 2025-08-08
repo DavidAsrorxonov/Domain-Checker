@@ -6,7 +6,7 @@ const ThemeToggle = () => {
   return (
     <button
       onClick={toggleTheme}
-      className="p-2 rounded bg-gray-300 dark:bg-gray-700 text-black dark:text-white"
+      className="p-2 rounded bg-red-500 dark:bg-blue-500"
     >
       {theme === "light" ? "🌜" : "🌞"}
     </button>
