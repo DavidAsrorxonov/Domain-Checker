@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import Navbar from "../components/Navbar";
 import ThemeToggle from "../components/ThemeToggle";
 import toast from "react-hot-toast";
@@ -8,7 +8,8 @@ const Main = () => {
   const [domain, setDomain] = useState("");
   const { theme } = useTheme();
 
-  const handleCheckDomain = () => {
+  const handleCheckDomain = (e: React.FormEvent) => {
+    e.preventDefault();
     if (!domain) {
       toast.error("Plaese enter a domain", {
         style: {
@@ -33,20 +34,28 @@ const Main = () => {
       </div>
 
       <div className="flex flex-col gap-4 items-center justify-center">
-        <input
-          value={domain}
-          onChange={(e) => setDomain(e.target.value)}
-          placeholder="example.com"
-          type="text"
-          className="w-[90%] md:w-1/3 px-4 py-2 
-             text-black dark:text-white 
-             bg-white dark:bg-gray-950 
-             rounded-md border border-gray-300 dark:border-gray-700 
-             focus:outline-none focus:ring-2 focus:ring-gray-500"
-        />
+        <div className="flex w-[90%] md:w-1/3 gap-2">
+          <input
+            value={domain}
+            onChange={(e) => setDomain(e.target.value)}
+            placeholder="example.com"
+            type="text"
+            className="flex-1 px-4 py-2 
+        text-black dark:text-white 
+        bg-white dark:bg-gray-950 
+        rounded-md border border-gray-300 dark:border-gray-700 
+        focus:outline-none focus:ring-2 focus:ring-gray-500"
+          />
+          <button
+            onClick={() => setDomain("")}
+            className="px-4 py-2 bg-red-500 text-white rounded-md font-semibold hover:bg-red-600"
+          >
+            Clear
+          </button>
+        </div>
 
         <button
-          className="w-1/5 ml-4 px-4 py-2 bg-black dark:bg-white text-white dark:text-black text-lg rounded-md font-bold"
+          className="w-[90%] md:w-1/3 px-4 py-2 bg-black dark:bg-white text-white dark:text-black text-lg rounded-md font-bold"
           onClick={handleCheckDomain}
         >
           Check
