@@ -3,10 +3,13 @@ import Navbar from "../components/Navbar";
 import ThemeToggle from "../components/ThemeToggle";
 import toast from "react-hot-toast";
 import { useTheme } from "../hooks/useTheme";
+import { House } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Main = () => {
   const [domain, setDomain] = useState("");
   const { theme } = useTheme();
+  const navigate = useNavigate();
 
   const handleCheckDomain = (e: React.FormEvent) => {
     e.preventDefault();
@@ -25,7 +28,17 @@ const Main = () => {
   return (
     <div className="flex flex-col gap-10 mx-10 mt-10">
       <div className="flex justify-between items-center">
-        <Navbar />
+        <div className="flex items-center gap-4">
+          <House
+            size={40}
+            className="cursor-pointer"
+            onClick={() => navigate("/")}
+          />
+
+          <div className="w-0.5 h-12 bg-black dark:bg-white"></div>
+
+          <Navbar />
+        </div>
         <ThemeToggle />
       </div>
 
