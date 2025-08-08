@@ -1,7 +1,14 @@
+import { useState } from "react";
 import Navbar from "../components/Navbar";
 import ThemeToggle from "../components/ThemeToggle";
 
 const Main = () => {
+  const [domain, setDomain] = useState("");
+
+  const handleCheckDomain = () => {
+    console.log(domain);
+  };
+
   return (
     <div className="flex flex-col gap-10 mx-10 mt-10">
       <div className="flex justify-between items-center">
@@ -15,12 +22,21 @@ const Main = () => {
 
       <div className="flex flex-col gap-4 items-center justify-center">
         <input
+          value={domain}
+          onChange={(e) => setDomain(e.target.value)}
           placeholder="example.com"
           type="text"
-          className="w-[90%] md:w-1/3 px-4 py-2 text-black dark:text-white rounded-md border border-gray-300 dark:border-gray-600 ring:1 ring-gray-300 dark:ring-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-500"
+          className="w-[90%] md:w-1/3 px-4 py-2 
+             text-black dark:text-white 
+             bg-white dark:bg-gray-950 
+             rounded-md border border-gray-300 dark:border-gray-700 
+             focus:outline-none focus:ring-2 focus:ring-gray-500"
         />
 
-        <button className="w-1/5 ml-4 px-4 py-2 bg-black dark:bg-white text-white dark:text-black rounded-md">
+        <button
+          className="w-1/5 ml-4 px-4 py-2 bg-black dark:bg-white text-white dark:text-black text-lg rounded-md font-bold"
+          onClick={handleCheckDomain}
+        >
           Check
         </button>
       </div>
