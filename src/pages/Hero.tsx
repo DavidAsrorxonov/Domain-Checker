@@ -30,7 +30,7 @@ const Hero = () => {
   return (
     <div className="w-full h-screen flex flex-col">
       <div className="relative w-full">
-        <div className="absolute top-4 left-1/2 transform -translate-x-1/2">
+        <div className="absolute top-4 left-1/2 transform -translate-x-1/2 text-black dark:text-white">
           <Navbar />
         </div>
         <div className="absolute top-4 right-6">

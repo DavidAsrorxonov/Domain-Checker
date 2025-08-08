@@ -1,11 +1,16 @@
 import "./App.css";
 import Hero from "./pages/Hero";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Main from "./pages/Main";
 
 function App() {
   return (
-    <div className="min-h-screen bg-white dark:bg-black text-black dark:text-white flex items-center justify-center">
-      <Hero />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Hero />} />
+        <Route path="/main" element={<Main />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

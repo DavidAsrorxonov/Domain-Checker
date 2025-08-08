@@ -1,8 +1,10 @@
 import gsap from "gsap";
 import { useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Button = () => {
   const buttonRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     gsap.fromTo(
@@ -25,6 +27,7 @@ const Button = () => {
     <div
       className="w-52 flex items-center font-bold justify-center px-4 py-2 bg-black dark:bg-white text-white dark:text-black rounded-md mb-24 text-xl cursor-pointer"
       ref={buttonRef}
+      onClick={() => navigate("/main")}
     >
       Get Started
     </div>
