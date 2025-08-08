@@ -1,11 +1,23 @@
 import { useState } from "react";
 import Navbar from "../components/Navbar";
 import ThemeToggle from "../components/ThemeToggle";
+import toast from "react-hot-toast";
+import { useTheme } from "../hooks/useTheme";
 
 const Main = () => {
   const [domain, setDomain] = useState("");
+  const { theme } = useTheme();
 
   const handleCheckDomain = () => {
+    if (!domain) {
+      toast.error("Plaese enter a domain", {
+        style: {
+          background: `${theme === "dark" ? "#100c08" : "#fff"}`,
+          color: `${theme === "dark" ? "#fff" : "#100c08"}`,
+        },
+      });
+    }
+
     console.log(domain);
   };
 
