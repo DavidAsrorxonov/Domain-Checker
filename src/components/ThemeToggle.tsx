@@ -6,9 +6,14 @@ const ThemeToggle = () => {
   return (
     <button
       onClick={toggleTheme}
-      className="p-2 rounded bg-red-500 dark:bg-blue-500"
+      aria-label="Toggle Theme"
+      className="w-12 h-6 flex items-center bg-gray-300 dark:bg-gray-600 rounded-full p-1 transition-colors duration-300"
     >
-      {theme === "light" ? "🌜" : "🌞"}
+      <div
+        className={`w-4 h-4 bg-white rounded-full shadow-md transform transition-transform duration-300 ${
+          theme === "dark" ? "translate-x-6" : "translate-x-0"
+        }`}
+      />
     </button>
   );
 };
